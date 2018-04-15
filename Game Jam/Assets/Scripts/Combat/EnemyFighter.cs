@@ -19,10 +19,8 @@ public class EnemyFighter : Fighter
 			currentHealth = Mathf.Clamp(value, 0, maxHeath);
 		}
 	}
-
-	public override void Start()
+	public int PickNextAttack()
 	{
-		base.Start();
-		CurrentHealth = maxHeath;
+		return UnityEngine.Random.Range(0, 3);
 	}
 }

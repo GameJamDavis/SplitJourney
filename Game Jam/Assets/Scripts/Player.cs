@@ -14,7 +14,7 @@
 		}
 	}
 
-	public int health;
+	public int health = 20;
 
 
 }
