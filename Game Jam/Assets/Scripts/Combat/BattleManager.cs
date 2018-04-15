@@ -32,6 +32,9 @@ public class BattleManager : MonoBehaviour
 		enemyFighter = Instantiate(enemyFighterPrefab);
 		fighters = new List<Fighter>() { playerFighter, enemyFighter };
 
+		if (UnityEngine.Random.value > .5f)
+			fighters.Reverse();
+
 		StartCoroutine(BattleFlow());
 	}
 
@@ -44,7 +47,7 @@ public class BattleManager : MonoBehaviour
 			{
 				if (fighter.IsAlive()) // just in case
 				{
-					yield return fighter.Turn();
+					yield return fighter.Turn(this);
 				}
 
 				BattleResult result = IsBattleOver();
